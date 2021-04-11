@@ -1,6 +1,6 @@
 //Local Component: Solo funciona dentro del componente que lo invoca, no puede ser usado en cualquier lugar de la aplicacion y al ser transpilado si no es invocado no genera carga en JS
-let PlanComponent = {
-    template: '#plan-template',
+let PlanPickerItemComponent = {
+    template: '#plan-picker-item-template',
     props: {
         name: {
             type: String,
@@ -44,14 +44,15 @@ Vue.component('plan-picker', {
 let PlanPickerComponent = {
     template: '#plan-picker-template',
     components: {
-        plan: PlanComponent
+        'plan-picker-item': PlanPickerItemComponent
     },
     data() {
         return {
             plans: [
                 'The Hacker',
                 'The Traveler',
-                'The Rider'
+                'The Rider',
+                'The Gamer'
             ],
             selectedPlan: null
         }

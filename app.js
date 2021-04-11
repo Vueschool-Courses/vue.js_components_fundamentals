@@ -1,3 +1,16 @@
+Vue.component('plan-picker', {
+    template: '#plan-picker-template',
+    data() {
+        return {
+            plans: [
+                'The Hacker',
+                'The Traveler',
+                'The Rider'
+            ]
+        }
+    }
+})
+
 Vue.component('plan', {
     template: '#plan-template',
     props: {
@@ -10,12 +23,5 @@ Vue.component('plan', {
 })
 
 new Vue({
-    el: '#app',
-    data: {
-        plans: [
-            'The Hacker',
-            'The Traveler',
-            'The Rider'
-        ]
-    }
+    el: '#app'
 })

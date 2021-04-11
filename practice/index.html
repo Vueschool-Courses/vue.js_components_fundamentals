@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vue.js Slots Fundamentals</title>
+    </head>
+    <body>
+        <div id="app">
+            <page-layout>
+                <template #header>
+                    <h1>Here might be a page title</p>
+                </template>
+
+                <p>A paragraph for the main content</p>
+                <p>And another one.</p>
+
+                <template #footer>
+                    <p>Here´s some contact info</p>
+                </template>
+            </page-layout>
+
+        </div>
+
+        <script type="text/x-template" id="page-layout-template">
+            <div>
+                <header>
+                    <slot name="header"></slot>
+                </header>
+                <main>
+                    <slot></slot>
+                </main>
+
+                <footer>
+                    <slot name="footer"></slot>
+                </footer>
+            </div>
+        </script>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script src="app.js"></script>
+        <style>
+            .container {
+                max-width: 1920;
+                padding: 10px;
+            }
+
+            header {
+                width: 100%;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            footer {
+                width: 100%;
+                margin-top: 50px;
+                text-align: center;
+            }
+        </style>
+    </body>
+</html>

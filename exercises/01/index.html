@@ -8,7 +8,10 @@
 
         <div id="app" class="ui container">
             <h1>GitHub Profiles</h1>
-            <github-user-card username="hootlex"></github-user-card>
+            <div class="ui cards">
+                <github-user-card v-for="username in usernames" :username="username"></github-user-card>
+            </div>
+
         </div>
 
         <script
@@ -16,22 +19,22 @@
             <!-- Template for GitHub card -->
             <div class="ui card">
                 <div class="image">
-                    <img :src="img">
+                    <img :src="user.avatar_url">
                 </div>
                 <div class="content">
-                    <a class="header">{{name}}</a>
+                    <a :href="`https://github.com/${username}`" class="header">{{user.name}}</a>
                     <div class="meta">
                         <span class="date">Joined in
-                            {{joined}}</span>
+                            {{user.created_at}}</span>
                     </div>
                     <div class="description">
-                        {{bio}}
+                        {{user.bio}}
                     </div>
                 </div>
                 <div class="extra content">
-                    <a>
+                    <a :href="`https://github.com/${username}?tab=followers`">
                         <i class="user icon"></i>
-                        {{followers}}
+                        {{user.followers}}
                         Friends
                     </a>
                 </div>

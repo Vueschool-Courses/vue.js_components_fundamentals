@@ -10,22 +10,13 @@ const GithubUserCard = {
     },    
     data () {
         return {
-            img: null,
-            name: null,
-            joined: null,
-            bio: null,
-            followers: null
+            user: {}
         }
     },
     created(){
         axios.get('https://api.github.com/users/' + this.username)
         .then(response => {
-            const data = response.data
-            this.img = data.avatar_url
-            this.name = data.name
-            this.joined = data.created_at
-            this.bio = data.bio
-            this.followers = data.followers
+            this.user = response.data
         })
     }
 }
@@ -33,6 +24,9 @@ new Vue({
     el: '#app',
     components: {
         'github-user-card': GithubUserCard
+    },
+    data: {
+        usernames: ['hootlex', 'juanhz02', 'akryum', 'rahaug','sdras']
     }
 
 })

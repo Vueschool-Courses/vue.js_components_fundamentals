@@ -1,4 +1,3 @@
-
 const GithubUserCard = {
     template: '#github-user-card-template',
     props: {
